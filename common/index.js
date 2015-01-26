@@ -31,6 +31,7 @@ Generator.prototype.setupEnv = function setupEnv() {
   copy('404.html');
   copy('favicon.ico');
   copy('robots.txt');
+  copy('views/partials/modal-login.html');
   copy('views/main.html');
   this.directory(join('app', 'images'), join(appPath, 'images'));
 };

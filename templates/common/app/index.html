@@ -5,41 +5,66 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <base href="/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/icons/Icon-60.png">
+
+    <!-- Win8 Tile Color-->
+    <meta name="msapplication-TileColor" content="#D00000">
+
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" sizes="60x60" href="images/icons/Icon-60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/icons/Icon-76@2x.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/icons/Icon-60@2x.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/Icon-76@2x.png">
+
+    <!-- build:js(.) scripts/webcomponents.js -->
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <!-- endbuild -->
+
+    <!-- UNL Components -->
+    <!-- End UNL Components -->
+
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="<%= scriptAppName %>">
+    <unl-modal id="unl-modal" type="takeover"></unl-modal>
+    <!-- Login Modal Content -->
+    <div id="modal-content-login" ng-include src="'views/partials/modal-login.html'" onload="showLoginWindow()"></div>
+    <!-- End Modal Content -->
+    
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#/">Home</a></li>
-          <li><a ng-href="<% if (ngRoute) { %>#/about<% } else { %>#/<% } %>">About</a></li>
-          <li><a ng-href="#/">Contact</a></li>
-        </ul>
-        <h3 class="text-muted"><%= appname %></h3>
-      </div>
-
-      <% if (ngRoute) {
-        %><div ng-view></div><%
-      } else {
-        %><div ng-include="'views/main.html'" ng-controller="MainCtrl"></div><%
-      } %>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+    <unl-layout>
+        <div drawer flex vertical layout>
+            <unl-list-group>
+                <unl-list-item-user user='{{currentUser | json}}'></unl-list-item-user>
+                <div ng-show="currentUser">
+                <!-- Authenticated user options -->
+                <unl-list-item-header>Options</unl-list-item-header>
+                <unl-list-item-label heading="Log out" link><a ng-href="#" ng-click="logOutCurrentUser()"></a></unl-list-item-label>
+                <!-- End authenticated user options -->
+                </div>
+            </unl-list-group>
+        </div>
+        <div main vertical layout ng-view="" ng-class="pageAnimationClass">
+        </div>
+    </unl-layout>
+    <unl-toast text=""></unl-toast>
+    <!-- End application content -->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

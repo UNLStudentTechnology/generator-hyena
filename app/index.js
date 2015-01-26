@@ -166,45 +166,45 @@ Generator.prototype.welcome = function welcome() {
   }
 };
 
-Generator.prototype.askForCompass = function askForCompass() {
-  var cb = this.async();
+// Generator.prototype.askForCompass = function askForCompass() {
+//   var cb = this.async();
 
-  this.prompt([{
-    type: 'confirm',
-    name: 'compass',
-    message: 'Would you like to use Sass (with Compass)?',
-    default: true
-  }], function (props) {
-    this.compass = props.compass;
+//   this.prompt([{
+//     type: 'confirm',
+//     name: 'compass',
+//     message: 'Would you like to use Sass (with Compass)?',
+//     default: true
+//   }], function (props) {
+//     this.compass = props.compass;
 
-    cb();
-  }.bind(this));
-};
+//     cb();
+//   }.bind(this));
+// };
 
-Generator.prototype.askForBootstrap = function askForBootstrap() {
-  var compass = this.compass;
-  var cb = this.async();
+// Generator.prototype.askForBootstrap = function askForBootstrap() {
+//   var compass = this.compass;
+//   var cb = this.async();
 
-  this.prompt([{
-    type: 'confirm',
-    name: 'bootstrap',
-    message: 'Would you like to include Bootstrap?',
-    default: true
-  }, {
-    type: 'confirm',
-    name: 'compassBootstrap',
-    message: 'Would you like to use the Sass version of Bootstrap?',
-    default: true,
-    when: function (props) {
-      return props.bootstrap && compass;
-    }
-  }], function (props) {
-    this.bootstrap = props.bootstrap;
-    this.compassBootstrap = props.compassBootstrap;
+//   this.prompt([{
+//     type: 'confirm',
+//     name: 'bootstrap',
+//     message: 'Would you like to include Bootstrap?',
+//     default: true
+//   }, {
+//     type: 'confirm',
+//     name: 'compassBootstrap',
+//     message: 'Would you like to use the Sass version of Bootstrap?',
+//     default: true,
+//     when: function (props) {
+//       return props.bootstrap && compass;
+//     }
+//   }], function (props) {
+//     this.bootstrap = props.bootstrap;
+//     this.compassBootstrap = props.compassBootstrap;
 
-    cb();
-  }.bind(this));
-};
+//     cb();
+//   }.bind(this));
+// };
 
 Generator.prototype.askForModules = function askForModules() {
   var cb = this.async();
@@ -230,10 +230,6 @@ Generator.prototype.askForModules = function askForModules() {
       value: 'resourceModule',
       name: 'angular-resource.js',
       checked: true
-    }, {
-      value: 'messagesModule',
-      name: 'angular-messages.js',
-      checked: false
     }, {
       value: 'routeModule',
       name: 'angular-route.js',
