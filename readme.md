@@ -1,14 +1,12 @@
 # Hyena Generator
 
-> Yeoman generator for AngularJS - lets you quickly set up a project with sensible defaults and best practices.
-
-[Roadmap for upcoming plans/features/fixes](https://github.com/yeoman/generator-angular/issues/553)
+> Yeoman generator for Hyena Apps @ UNL. Based on the Yeoman managed AngularJS generator.
 
 ## Usage
 
-Install `generator-angular`:
+Install `generator-hyena`:
 ```
-npm install -g generator-angular
+npm install -g generator-hyena
 ```
 
 Make a new directory, and `cd` into it:
@@ -16,9 +14,9 @@ Make a new directory, and `cd` into it:
 mkdir my-new-project && cd $_
 ```
 
-Run `yo angular`, optionally passing an app name:
+Run `yo hyena`, optionally passing an app name:
 ```
-yo angular [app-name]
+yo hyena [app-name]
 ```
 
 Run `grunt` for building and `grunt serve` for preview
@@ -28,27 +26,27 @@ Run `grunt` for building and `grunt serve` for preview
 
 Available generators:
 
-* [angular](#app) (aka [angular:app](#app))
-* [angular:controller](#controller)
-* [angular:directive](#directive)
-* [angular:filter](#filter)
-* [angular:route](#route)
-* [angular:service](#service)
-* [angular:provider](#service)
-* [angular:factory](#service)
-* [angular:value](#service)
-* [angular:constant](#service)
-* [angular:decorator](#decorator)
-* [angular:view](#view)
+* [hyena](#app) (aka [hyena:app](#app))
+* [hyena:controller](#controller)
+* [hyena:directive](#directive)
+* [hyena:filter](#filter)
+* [hyena:route](#route)
+* [hyena:service](#service)
+* [hyena:provider](#service)
+* [hyena:factory](#service)
+* [hyena:value](#service)
+* [hyena:constant](#service)
+* [hyena:decorator](#decorator)
+* [hyena:view](#view)
 
 **Note: Generators are to be run from the root directory of your app.**
 
 ### App
-Sets up a new AngularJS app, generating all the boilerplate you need to get started. The app generator also optionally installs Bootstrap and additional AngularJS modules, such as angular-resource (installed by default).
+Sets up a new AngularJS app, generating all the boilerplate you need to get started. The app generator also optionally installs Bootstrap and additional AngularJS modules, such as hyena-resource (installed by default).
 
 Example:
 ```bash
-yo angular
+yo hyena
 ```
 
 ### Route
@@ -56,12 +54,12 @@ Generates a controller and view, and configures a route in `app/scripts/app.js` 
 
 Example:
 ```bash
-yo angular:route myroute
+yo hyena:route myroute
 ```
 
 Produces `app/scripts/controllers/myroute.js`:
 ```javascript
-angular.module('myMod').controller('MyrouteCtrl', function ($scope) {
+hyena.module('myMod').controller('MyrouteCtrl', function ($scope) {
   // ...
 });
 ```
@@ -75,7 +73,7 @@ Produces `app/views/myroute.html`:
 
 Example:
 ```bash
-yo angular:route myRoute --uri=my/route
+yo hyena:route myRoute --uri=my/route
 ```
 
 Produces controller and view as above and adds a route to `app/scripts/app.js`
@@ -86,12 +84,12 @@ Generates a controller in `app/scripts/controllers`.
 
 Example:
 ```bash
-yo angular:controller user
+yo hyena:controller user
 ```
 
 Produces `app/scripts/controllers/user.js`:
 ```javascript
-angular.module('myMod').controller('UserCtrl', function ($scope) {
+hyena.module('myMod').controller('UserCtrl', function ($scope) {
   // ...
 });
 ```
@@ -100,12 +98,12 @@ Generates a directive in `app/scripts/directives`.
 
 Example:
 ```bash
-yo angular:directive myDirective
+yo hyena:directive myDirective
 ```
 
 Produces `app/scripts/directives/myDirective.js`:
 ```javascript
-angular.module('myMod').directive('myDirective', function () {
+hyena.module('myMod').directive('myDirective', function () {
   return {
     template: '<div></div>',
     restrict: 'E',
@@ -121,12 +119,12 @@ Generates a filter in `app/scripts/filters`.
 
 Example:
 ```bash
-yo angular:filter myFilter
+yo hyena:filter myFilter
 ```
 
 Produces `app/scripts/filters/myFilter.js`:
 ```javascript
-angular.module('myMod').filter('myFilter', function () {
+hyena.module('myMod').filter('myFilter', function () {
   return function (input) {
     return 'myFilter filter:' + input;
   };
@@ -138,7 +136,7 @@ Generates an HTML view file in `app/views`.
 
 Example:
 ```bash
-yo angular:view user
+yo hyena:view user
 ```
 
 Produces `app/views/user.html`:
@@ -151,29 +149,29 @@ Generates an AngularJS service.
 
 Example:
 ```bash
-yo angular:service myService
+yo hyena:service myService
 ```
 
 Produces `app/scripts/services/myService.js`:
 ```javascript
-angular.module('myMod').service('myService', function () {
+hyena.module('myMod').service('myService', function () {
   // ...
 });
 ```
 
-You can also do `yo angular:factory`, `yo angular:provider`, `yo angular:value`, and `yo angular:constant` for other types of services.
+You can also do `yo hyena:factory`, `yo hyena:provider`, `yo hyena:value`, and `yo hyena:constant` for other types of services.
 
 ### Decorator
 Generates an AngularJS service decorator.
 
 Example:
 ```bash
-yo angular:decorator serviceName
+yo hyena:decorator serviceName
 ```
 
 Produces `app/scripts/decorators/serviceNameDecorator.js`:
 ```javascript
-angular.module('myMod').config(function ($provide) {
+hyena.module('myMod').config(function ($provide) {
     $provide.decorator('serviceName', function ($delegate) {
       // ...
       return $delegate;
@@ -189,12 +187,12 @@ For generators that output scripts, the `--coffee` option will output CoffeeScri
 
 For example:
 ```bash
-yo angular:controller user --coffee
+yo hyena:controller user --coffee
 ```
 
 Produces `app/scripts/controller/user.coffee`:
 ```coffeescript
-angular.module('myMod')
+hyena.module('myMod')
   .controller 'UserCtrl', ($scope) ->
 ```
 
@@ -222,7 +220,7 @@ By default, new scripts are added to the index.html file. However, this may not 
 
 To skip adding them to the index, pass in the skip-add argument:
 ```bash
-yo angular:service serviceName --skip-add
+yo hyena:service serviceName --skip-add
 ```
 
 ## Bower Components
@@ -264,29 +262,8 @@ This will cause Yeoman-generated client-side files to be placed in `public`.
 
 Note that you can also achieve the same results by adding an `--appPath` option when starting generator:
 ```bash
-yo angular [app-name] --appPath=public
+yo hyena [app-name] --appPath=public
 ```
 
 ## Testing
-
 Running `grunt test` will run the unit tests with karma.
-
-## Contribute
-
-See the [contributing docs](https://github.com/yeoman/yeoman/blob/master/contributing.md)
-
-When submitting an issue, please follow the [guidelines](https://github.com/yeoman/yeoman/blob/master/contributing.md#issue-submission). Especially important is to make sure Yeoman is up-to-date, and providing the command or commands that cause the issue.
-
-When submitting a PR, make sure that the commit messages match the [AngularJS conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/).
-
-When submitting a bugfix, write a test that exposes the bug and fails before applying your fix. Submit the test alongside the fix.
-
-When submitting a new feature, add tests that cover the feature.
-
-## Changelog
-
-Recent changes can be viewed on Github on the [Releases Page](https://github.com/yeoman/generator-angular/releases)
-
-## License
-
-[BSD license](http://opensource.org/licenses/bsd-license.php)
