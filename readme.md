@@ -1,6 +1,10 @@
 # Hyena Generator
 
-> Yeoman generator for Hyena Apps @ UNL. Based on the Yeoman managed AngularJS generator.
+> Yeoman generator for scaffolding apps based on the Hyena platform at the University of Nebraska-Lincoln. Based on the Yeoman managed AngularJS generator.
+
+## WARNING
+
+This doesn't work too well right now. A lot of issues need to be fixed. You can use this, but expect having to take some extra steps to get it to work 100% correctly.
 
 ## Usage
 
