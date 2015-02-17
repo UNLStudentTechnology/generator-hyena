@@ -9,8 +9,11 @@
  * Main module of the application.
  */
 angular
-  .module('<%= scriptAppName %>', [<%= angularModules %>])<% if (ngRoute) { %>
-  .config(function ($routeProvider) {
+  .module('<%= scriptAppName %>', [
+    <%= angularModules %>
+    'hyenaAngular'
+    ])<% if (ngRoute) { %>
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -19,4 +22,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+      $locationProvider.html5Mode(true);
   })<% } %>;

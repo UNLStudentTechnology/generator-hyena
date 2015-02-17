@@ -1,8 +1,8 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<html class="no-js" ng-app="<%= scriptAppName %>">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title><%= scriptAppName %></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
@@ -26,24 +26,9 @@
     <!-- endbuild -->
 
     <!-- UNL Components -->
-    <link rel="import" href="elements/unl-header/unl-header.html">
-    <link rel="import" href="elements/unl-layout/unl-layout.html">
-    <link rel="import" href="elements/unl-layout-kiosk/unl-layout-kiosk.html">
-    <link rel="import" href="elements/unl-panel/unl-panel.html">
-    <link rel="import" href="elements/unl-toolbar/unl-toolbar.html">
-    <link rel="import" href="elements/unl-list-group/unl-list-group.html">
-    <link rel="import" href="elements/unl-list-item/unl-list-item.html">
-    <link rel="import" href="elements/unl-list-item-label/unl-list-item-label.html">
-    <link rel="import" href="elements/unl-list-item-user/unl-list-item-user.html">
-    <link rel="import" href="elements/unl-list-item-header/unl-list-item-header.html">
-    <link rel="import" href="elements/unl-icon-button/unl-icon-button.html">
-    <link rel="import" href="elements/unl-ncard-input/unl-ncard-input.html">
-    <link rel="import" href="elements/unl-toast/unl-toast.html">
-    <link rel="import" href="elements/unl-modal/unl-modal.html">
-    <link rel="import" href="elements/unl-empty-content/unl-empty-content.html">
-    <link rel="import" href="elements/unl-drawer-toggle/unl-drawer-toggle.html">
-    <link rel="import" href="elements/unl-toggle-button/unl-toggle-button.html">
-    <link rel="import" href="elements/paper-ripple/paper-ripple.html">
+    <!-- build:elements(.) elements/unl-components/dist/unl-components.html -->
+    <link rel="import" href="bower_components/unl-components/dist/unl-components.html">
+    <!-- endbuild -->
     <!-- End UNL Components -->
 
     <!-- build:css(.) styles/vendor.css -->
@@ -55,7 +40,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="<%= scriptAppName %>">
+  <body ng-controller="ApplicationCtrl" unresolved>
     <unl-modal id="unl-modal" type="takeover"></unl-modal>
     <!-- Login Modal Content -->
     <div id="modal-content-login" ng-include src="'views/partials/modal-login.html'" onload="showLoginWindow()"></div>
@@ -77,11 +62,13 @@
                 <!-- End authenticated user options -->
                 </div>
             </unl-list-group>
+            <footer>
+            </footer>
         </div>
-        <div main vertical layout ng-view="" ng-class="pageAnimationClass">
+        <div main vertical layout ng-view ng-class="pageAnimationClass">
         </div>
     </unl-layout>
-    <unl-toast text=""></unl-toast>
+    <unl-toast></unl-toast>
     <!-- End application content -->
 
 
