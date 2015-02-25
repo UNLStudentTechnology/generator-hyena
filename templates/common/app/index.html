@@ -50,26 +50,10 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <unl-layout>
-        <div drawer flex vertical layout>
-            <unl-list-group>
-                <unl-list-item-user user='{{currentUser | json}}'></unl-list-item-user>
-                <div ng-show="currentUser">
-                <!-- Authenticated user options -->
-                <unl-list-item-header>Options</unl-list-item-header>
-                <unl-list-item-label heading="Log out" link><a ng-href="#" ng-click="logOutCurrentUser()"></a></unl-list-item-label>
-                <!-- End authenticated user options -->
-                </div>
-            </unl-list-group>
-            <footer>
-            </footer>
-        </div>
-        <div main vertical layout ng-view ng-class="pageAnimationClass">
-        </div>
-    </unl-layout>
+    <!-- Application Content -->
+    <div ui-view></div>
+    <!-- End Application Content -->
     <unl-toast></unl-toast>
-    <!-- End application content -->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

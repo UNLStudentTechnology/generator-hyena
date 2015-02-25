@@ -10,18 +10,30 @@
  */
 angular
   .module('<%= scriptAppName %>', [
-    <%= angularModules %>
+    <%= angularModules %>,
+    'ui.router',
     'hyenaAngular'
     ])
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    $stateProvider
+      //Layouts
+      .state('unl-layout', {
+        templateUrl: 'views/layouts/unl-layout.html',
+      })
+      .state('unl-layout-kiosk', {
+        templateUrl: 'views/layouts/unl-layout-kiosk.html',
+      })
+      //Views
+      .state('unl-layout.main', {
+        url: '/:groupId',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+      //Default Route
+      $urlRouterProvider.otherwise("/");
+      //End Default Route
+      
+      //Remove # from URLs
       $locationProvider.html5Mode(true);
   })
   .config(function ($httpProvider) {

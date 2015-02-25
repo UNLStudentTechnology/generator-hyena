@@ -32,6 +32,8 @@ Generator.prototype.setupEnv = function setupEnv() {
   copy('.htaccess');
   copy('404.html');
   copy('robots.txt');
+  copy('views/layouts/unl-layout.html');
+  copy('views/layouts/unl-layout-kiosk.html');
   copy('views/partials/modal-login.html');
   copy('views/main.html');
   this.directory(join('app', 'images'), join(appPath, 'images'));

@@ -231,10 +231,6 @@ Generator.prototype.askForModules = function askForModules() {
       name: 'angular-resource.js',
       checked: true
     }, {
-      value: 'routeModule',
-      name: 'angular-route.js',
-      checked: true
-    }, {
       value: 'sanitizeModule',
       name: 'angular-sanitize.js',
       checked: true
